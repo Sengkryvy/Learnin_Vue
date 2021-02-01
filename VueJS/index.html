@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+
+</head>
+
+<body>
+    <div id="container" class="container">
+
+        <!-- Variable and method -->
+        <div id="title">
+            <h1>{{ title }}</h1>
+            <p>{{ greet() }}</p>
+        </div>
+
+        <!-- Events -->
+        <div id="events">
+            <h1>{{ title }}</h1>
+
+            <h4>Mouse Event</h4>
+            <button v-on:click.once="increaseAge(1)" class="btn btn-primary">+</button>
+            <button v-on:click="decreaseAge" class="btn btn-danger">-</button>
+            <p>My age is {{ age }}</p>
+            <div class="canvas" @mousemove="updateXY">
+                {{ x }} , {{ y }}
+            </div>
+            <!-- Prevent element from it default behavior -->
+            <a @click.prevent href="https://www.google.com">Google</a>
+
+            <h4>Keyboard Event</h4>
+            <label>Name: </label>
+            <input v-model="name" type="text">
+            <label>Age: </label>
+            <input v-model="age" type="text">
+            <p>Hello!! You are {{ name }} and {{ age }} years old, right?</p>
+        </div>
+
+        <!-- Computed Properties -->
+    </div>
+
+    <script src="index.js">
+    </script>
+</body>
+
+</html>
