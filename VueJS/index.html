@@ -28,7 +28,7 @@
             <h1>{{ title }}</h1>
 
             <h4>Mouse Event</h4>
-            <button v-on:click.once="increaseAge(1)" class="btn btn-primary">+</button>
+            <button v-on:click="increaseAge" class="btn btn-primary">+</button>
             <button v-on:click="decreaseAge" class="btn btn-danger">-</button>
             <p>My age is {{ age }}</p>
             <div class="canvas" @mousemove="updateXY">
@@ -46,6 +46,28 @@
         </div>
 
         <!-- Computed Properties -->
+        <div id="computed-properties">
+            <h4>Computed Properties</h4>
+            <p>Computed properties uses cache to store previous result and could keep track of cange on its dependencies, if nothing has changed, it wouldn't rerun the function unlike methods which are likely to rerun every render.</p>
+            <button class="btn btn-primary" @click="increaseA_fn">A</button>
+            <button class="btn btn-danger" @click="increaseB_fn">B</button>
+            <div class="d-flex">
+                <p>A: {{ a }}</p>&nbsp;&nbsp;
+                <p>B: {{ b }}</p>
+            </div>
+            <div>
+                <input type="number" v-model="x"><span> + A = {{ xPlusA }}</span>
+            </div>
+            <div>
+                <input type="number" v-model="x"><span> + B = {{ xPlusB }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dynamic CSS Class -->
+    <div id="dynamic-css-class">
+        <button class="btn btn-info">Color</button>
+        <button class="btn">Disable</button>
     </div>
 
     <script src="index.js">
