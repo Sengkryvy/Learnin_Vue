@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div id="container" class="container">
+    <div id="container" class="container py-4">
 
         <!-- Variable and method -->
         <div id="title">
@@ -61,14 +61,55 @@
             <div>
                 <input type="number" v-model="x"><span> + B = {{ xPlusB }}</span>
             </div>
+        </div><br>
+
+        <!-- Dynamic CSS Class -->
+        <div id="dynamic-css-class">
+            <h4>Dynamic CSS Class</h4>
+            <button class="btn btn-info" @click="changeColor">Color</button>
+            <button class="btn btn-dark" @click="changeState">Disable</button>
+            <button class="btn" v-bind:disabled="isDisable" v-bind:class="{ 'btn-success': isGreen, 'btn-danger': isRed }">Hello!</button>
+        </div><br>
+
+        <!-- Conditional -->
+        <div id="conditionals">
+            <h4>{{ title }}</h4>
+            <p>{{ desc }}</p>
+            <div>
+                <button class="btn btn-success" @click=" isSuccess = !isSuccess">Success</button>
+                <button class="btn btn-danger" @click=" isError = !isError">Error</button>
+            </div>
+            <!-- v-if -->
+            <p v-if="isError">There was an unexpected error!</p>
+            <p v-else-if="isSuccess">YEAHHH, success!!!</p>
+            <!-- v-show -->
+            <p v-show="isError">Opppp!</p>
+        </div><br>
+
+        <!-- Looping with v-for -->
+        <div id="looping-with-v-for">
+            <h4>{{ title }}</h4>
+            <p>Looping through array:</p>
+            <ul>
+                <li v-for="character in characters">{{ character }}</li>
+            </ul>
+            <br>
+            <p>Looping Array of Object:</p>
+            <p>By using &lt;template&gt;= tag, vue will only render the child of the template.</p>
+            <template v-for="(hero, index) in heroes">
+                <h5>{{ index }} . {{ hero.name }}  </h5>
+                <p>{{ hero.role }}</p>
+                <p>{{ hero.difficulty }}</p>
+                
+                <p>Raw Object: </p>
+                <div v-for="(val, key) in hero">
+                    <p>{{ key }} . {{ val }}</p>
+                </div>
+            </template>
         </div>
     </div>
 
-    <!-- Dynamic CSS Class -->
-    <div id="dynamic-css-class">
-        <button class="btn btn-info">Color</button>
-        <button class="btn">Disable</button>
-    </div>
+
 
     <script src="index.js">
     </script>
